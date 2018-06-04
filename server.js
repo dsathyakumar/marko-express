@@ -5,7 +5,7 @@ var express = require('express');
 
 var indexTemplate = require('./index.marko');
 var app = express();
-var port = 8080;
+var port = process.env.PORT || process.env.port || 8080;
 
 var isProduction = process.env.NODE_ENV === 'production';
 
