@@ -24,11 +24,15 @@ require('lasso').configure({
 app.use(require('lasso/middleware').serveStatic());
 
 app.get('/', function(req, res) {
-    res.marko(indexTemplate, {
+    console.log(req.headers);
+    res.setHeader('contentType', 'application/json');
+    res.status(200);
+    res.send(req.headers);
+    /* res.marko(indexTemplate, {
             name: 'Frank',
             count: 30,
             colors: ['red', 'green', 'blue']
-        });
+        }); */
 });
 
 app.listen(port, function() {
